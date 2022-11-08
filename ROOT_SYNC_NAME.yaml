@@ -1,0 +1,13 @@
+apiVersion: configsync.gke.io/v1beta1
+kind: RootSync
+metadata:
+  name: ROOT_SYNC_NAME
+  namespace: config-management-system
+spec:
+  sourceFormat: unstructured
+  sourceType: oci
+  oci:
+    image: us-central1-docker.pkg.dev/fleet-service-project-916c3dfb/config-sync-repo/test-namespace:v1
+    dir: .
+    auth: gcpserviceaccount
+    gcpServiceAccountEmail: GSA_NAME@fleet-service-project-916c3dfb.iam.gserviceaccount.com
